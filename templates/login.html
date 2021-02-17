@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <br>
+        <br>
+        <div style='text-align: center'>
+            <h2>Login</h2>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <b style='color:darkred'>{{message}}</b>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <br>
+        <br>
+        <form method='POST' action="{{url_for('login')}}">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.password) }}
+            <br>
+            {{ wtf.form_field(form.remember) }}
+            <br>
+            <br>
+            <input type='submit' value='Login'>
+        <div style='text-align:center'>
+            <br>
+            <br>
+            <br>
+            Go back to <a href="{{url_for('home')}}">home page</a>
+        </div>
+        </form>
+    </body>
+</html>

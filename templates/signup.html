@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<html>
+    <head>
+        <title>Signup</title>
+    </head>
+    <body>
+        <br>
+        <br>
+        <div style='text-align: center'>
+            <h2>Signup</h2>
+        </div>
+        <br>
+        <form method='POST' action="{{url_for('signup')}}">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.confirm) }}
+            {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.name) }}
+            <br>
+            <input type='submit' value='Signup'>
+        </form>
+        <div style='text-align: center'>
+            <br>
+            <br>
+            <br>
+            Go back to <a href="{{url_for('home')}}">home page</a>
+        </div>
+    </body>
+</html>

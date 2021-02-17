@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Profile info</title>
+    </head>
+    <body>
+        <br>
+        <br>
+        <div style='text-align:center'>
+            <h2>Profile information</h2>
+            <b style='color:goldenrod; font-size:larger'>Welcome back, {{user.name}}!</b>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <b style='color:darkred'>{{message}}</b>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <br>
+            <br>
+            <br>
+            <b>Username</b>: {{user.username}}
+            <br>
+            <br>
+            <b>Email</b>: {{user.email}}
+            <br>
+            <br>
+            <b>Name</b>: {{user.name}}
+            <br>
+            <br>
+            <br>
+            <a href="{{url_for('changePassword')}}">Change password</a>
+            <br>
+            <br>
+            <br>
+            Go back to <a href="{{url_for('home')}}">home page</a>
+        </div>
+    </body>
+</html>
